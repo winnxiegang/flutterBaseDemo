@@ -18,45 +18,40 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("登录界面"), centerTitle: true),
-      body: Content(),
-    );
-  }
-
-  Widget Test() => Container(child: Text("内容区域${widget.name}"));
-}
-
-class Content extends StatefulWidget {
-  @override
-  _ContentState createState() => new _ContentState();
-}
-
-class _ContentState extends State<Content> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: InkWell(
-        child: Text(
-          "点击测试网络框架",
-          style: TextStyle(
-            color: Colors.black,
-            backgroundColor: Colors.black12,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          alignment: Alignment.topCenter,
+          child: Column(
+            children: <Widget>[_loadNetWidget()],
           ),
         ),
-        onTap: () {
-          this._request();
-        },
       ),
     );
   }
 
-  Future _request() async {
-    DioRequestControl()
-        .logion("12222222211", "22222222222", context)
-        .then((value) {
-      YToast.show(context: context, msg: "登录成功${value.data.toString()}");
-      Routes.router.navigateTo(context, Routes.root,
-          transition: TransitionType.native, replace: true);
-    });
+  /**
+   * Login网路请求
+   */
+  Future _requestLogin() async {
+    DioRequestControl().logion("111", "222", context).then((value) {});
+  }
+
+  /**
+   * loadNet组件
+   */
+  Widget _loadNetWidget() {
+    return InkWell(
+      child: Text(
+        "点击测试网络框架",
+        style: TextStyle(
+          color: Colors.black,
+          backgroundColor: Colors.black12,
+        ),
+      ),
+      onTap: () {
+        this._requestLogin();
+      },
+    );
   }
 }
