@@ -52,9 +52,9 @@ class _ContentState extends State<Content> {
 
   Future _request() async {
     DioRequestControl()
-        .logion("12222222211", "22222222222", context, backdiss: true)
+        .logion("12222222211", "22222222222", context)
         .then((value) {
-      YToast.show(context: context, msg: "登录成功${555}");
+      YToast.show(context: context, msg: "登录成功${value.data.toString()}");
       Routes.router.navigateTo(context, Routes.root,
           transition: TransitionType.native, replace: true);
     });

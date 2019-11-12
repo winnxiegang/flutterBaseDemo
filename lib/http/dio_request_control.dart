@@ -48,10 +48,10 @@ class DioRequestControl {
    */
   Future<UserEntity> logion(
       String username, String password, BuildContext context,
-      {bool backdiss,Function printError}) async {
-    dialog.showLoadingProgress(context,backdiss);
-    BaseResp<Map<String, dynamic>> baseResp = await HttpUtil.getInstance(context)
-        .request<Map<String, dynamic>>(
+      {bool backdiss, Function printError}) async {
+    dialog.showLoadingProgress(context, backdiss);
+    BaseResp<Map<String, dynamic>> baseResp =
+        await HttpUtil.getInstance(context).request<Map<String, dynamic>>(
             Method.post, ApiUrls.getPath(path: ApiUrls.LOGIN),
             data: {"username": username, "password": password});
     dialog.dismissDialog(context);

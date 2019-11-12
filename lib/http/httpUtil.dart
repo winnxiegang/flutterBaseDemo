@@ -102,6 +102,7 @@ class HttpUtil {
         }
         return new BaseResp(_code, _msg, _data);
       } catch (e) {
+        dialog.dismissDialog(_context);
         formatError(e);
         return new Future.error(new DioError(
           response: response,
@@ -170,6 +171,8 @@ class HttpUtil {
         }
         return new BaseResp(_code, _msg, _data);
       } catch (e) {
+        formatError(e);
+        dialog.dismissDialog(_context);
         return new Future.error(new DioError(
           response: response,
           message: "data parsing exception...",
@@ -188,7 +191,6 @@ class HttpUtil {
    * error统一处理
    */
   void formatError(DioError e) {
-    dialog.dismissDialog(_context);
     if (e.type == DioErrorType.CONNECT_TIMEOUT ||
         e.type == DioErrorType.SEND_TIMEOUT ||
         e.type == DioErrorType.RECEIVE_TIMEOUT) {
