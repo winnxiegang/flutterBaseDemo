@@ -7,6 +7,8 @@ import 'pages/login.dart';
 import 'pages/tabbar_page.dart';
 import 'provider/currentIndex.dart';
 import 'router/routes.dart';
+import 'pages/splash_page.dart';
+import 'utils/common_utils.dart';
 
 void main() {
   final router = new Router();
@@ -16,7 +18,7 @@ void main() {
       MultiProvider(
         providers: <SingleChildCloneableWidget>[
           ChangeNotifierProvider.value(value: CurrentIndexProvide()),
-          ChangeNotifierProvider.value(value: Global.loginStatus),
+          ChangeNotifierProvider.value(value:  Global.loginStatus),
         ],
         child: MyApp(),
       ),
@@ -34,12 +36,13 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(primaryColor: Colors.amber),
             home:
                 Consumer<LoginStatusProvide>(builder: (context, status, child) {
-              if (status.isLogin)
+              if (status.isLogin){
+                PrintUtils.printMsg("------->TabbarPageMyApp的运作中");
                 return TabbarPage();
+              }
               else
+                PrintUtils.printMsg("------->LoginPageMyApp的运作中");
                 return LoginPage();
             })));
   }
 }
-
-

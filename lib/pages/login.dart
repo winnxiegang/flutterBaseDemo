@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_myfirstdemo/utils/tire_export.dart';
+import '../utils/common_utils.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
-    Key key,
     this.name,
     this.passworld,
+    Key key,
   }) : super(key: key);
   final String name, passworld;
 
@@ -14,6 +15,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class LoginPageState extends State<LoginPage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    // dialog.dismissDialog(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +42,14 @@ class LoginPageState extends State<LoginPage> {
     );
   }
 
-  /**
-   * Login网路请求
-   */
+  /// Login网路请求
+
   Future _requestLogin() async {
-    DioRequestControl().logion("111", "222", context).then((value) {});
+    DioRequestControl()
+        .logion(widget.name, widget.passworld, context, printError: (value) {})
+        .then((value) {
+      ProviderUtils.Pro<LoginStatusProvide>(context)?.loginStatus("66666666");
+    });
   }
 
   /**
@@ -43,7 +58,7 @@ class LoginPageState extends State<LoginPage> {
   Widget _loadNetWidget() {
     return InkWell(
       child: Text(
-        "点击测试网络框架",
+        "点击测试网络框架1133311",
         style: TextStyle(
           color: Colors.black,
           backgroundColor: Colors.black12,

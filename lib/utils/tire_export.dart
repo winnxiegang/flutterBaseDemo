@@ -6,7 +6,6 @@ export '../utils/screen_util.dart';
 export '../http/dio_request_control.dart';
 export '../provider/login_status_provide.dart';
 export 'package:shared_preferences/shared_preferences.dart';
-export '../utils/colors.dart';
 export '../pages/login.dart';
 export '../utils/toast_util.dart';
 

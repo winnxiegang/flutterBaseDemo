@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_myfirstdemo/utils/colors.dart';
+import 'package:flutter_myfirstdemo/utils/common_utils.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 bool _loadingDialogIsShowned = false;
@@ -8,6 +8,7 @@ bool _msgDialogIsShowned = false;
 bool _msgConfirmDialogIsShowned = false;
 
 Future showLoadingProgress(BuildContext context, bool backdiss) {
+  if ( null==context) PrintUtils.printMsg("showDialoContext为空");
   _loadingDialogIsShowned = true;
   return showDialog(
     context: context,
@@ -195,8 +196,11 @@ Future showDeleteShopCartDialog(
     barrierDismissible: true,
   ).whenComplete(() => _msgConfirmDialogIsShowned = false);
 }
-
+/**
+ * context 不能为空
+ */
 dismissDialog(BuildContext context) {
+  if ( null==context ) PrintUtils.printMsg("dismissDialoContext为空");
   if (_loadingDialogIsShowned ||
       _msgDialogIsShowned ||
       _msgConfirmDialogIsShowned) {

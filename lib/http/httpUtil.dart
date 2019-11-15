@@ -9,7 +9,7 @@ import 'package:flutter_myfirstdemo/utils/toast_util.dart';
 
 import 'http_base_response.dart';
 import '../wedghts/simple_dialog.dart' as dialog;
-
+import '../utils/common_utils.dart';
 class HttpUtil {
   static HttpUtil instance;
   Dio dio;
@@ -74,7 +74,6 @@ class HttpUtil {
     if (match != null && pathReplace != null) {
       path = path.replaceAll(match, pathReplace);
     }
-    print(data);
     Response response = await dio.request(path,
         data: data,
         queryParameters: queryParameters,
@@ -240,26 +239,40 @@ class LogsInterceptors extends InterceptorsWrapper {
 
   @override
   onRequest(RequestOptions options) {
-    print('请求头: ' + options.headers.toString());
-    print("请求url：${options.path}");
+    print('log请求头: ' + options.headers.toString());
+    print("log请求基本url：${ApiUrls.BASEURL}");
+    print("log请求url：${options.path}");
     if (options.data != null) {
-      print('请求参数: ${options.data}');
+      print('log请求参数: ${options.data}');
     }
     if (options.queryParameters != null) {
-      print('请求参数: ${options.queryParameters}');
     }
     return options;
   }
 
   @override
   onResponse(Response response) {
-    print('返回结果: ${response.toString()}');
+    _printDataStr("log返回结果", response.data);
     return response; // continue
   }
 
   @override
   onError(DioError err) {
     formatError(err, _context);
+  }
+
+  /// print Data Str.
+  void _printDataStr(String tag, Object value) {
+    String da = value.toString();
+    while (da.isNotEmpty) {
+      if (da.length > 512) {
+        print("$tag:   " + da.substring(0, 512));
+        da = da.substring(512, da.length);
+      } else {
+        print("$tag:   " + da);
+        da = "";
+      }
+    }
   }
 
   /*

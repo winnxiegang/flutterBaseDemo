@@ -13,7 +13,7 @@ class ForgetPasswordPageState extends State<ForgetPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("appBar标题"), centerTitle: true),
+      appBar: AppBar(title: Text("ForgetPasswordPage"), centerTitle: true),
       body: ForgetPasswordContent(),
     );
   }

@@ -21,14 +21,15 @@ class DioRequestControl {
     }
   }
 
-//处理错误，可以自己在ui层.error处理
+/*
+处理错误，可以自己在ui层.error处理
+printError 在需要退出到其他界面中，可能导致dialog 或者其他的控件的context无法获取，需要网络请求时加上
+ */
   Future _error<T>(BaseResp baseResp, BuildContext context,
       {Function printError}) {
     if (baseResp.errorCode == 401 && context != null) {
-      //   RouteUtil.goLogin(context);
       OkToast.show(msg: "登录失效，重新登录");
-      Routes.router.navigateTo(context, Routes.root,
-          transition: TransitionType.native, replace: true);
+      Routes.router.navigateTo(context, Routes.login, replace: true);
       return new Future<T>.error(baseResp.errorMsg);
     }
     OkToast.show(msg: baseResp.errorMsg);
@@ -37,7 +38,8 @@ class DioRequestControl {
       return new Future<T>.error(baseResp.errorMsg);
     } else {
       if (baseResp.errorCode == 401) {
-        return new Future<T>.error("tokenerror");
+        Routes.router.navigateTo(context, Routes.login, replace: true);
+        return new Future<T>.error("登录失效，重新登录");
       }
       return new Future<T>.error(baseResp.errorMsg);
     }

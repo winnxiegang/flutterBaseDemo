@@ -18,8 +18,8 @@ class TabbarPage extends StatelessWidget {
         icon: Icon(CupertinoIcons.profile_circled), title: Text('会员中心')),
   ];
   final List<Widget> tabBodies = [
-    LoginPage(),
     ConfirmNewPasswordPage(),
+    LoginPage(),
     LoginPage(),
     ConfirmNewPasswordPage()
   ];
