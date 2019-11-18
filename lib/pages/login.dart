@@ -45,11 +45,10 @@ class LoginPageState extends State<LoginPage> {
   /// Login网路请求
 
   Future _requestLogin() async {
-    DioRequestControl()
-        .logion(widget.name, widget.passworld, context, printError: (value) {})
-        .then((value) {
-      ProviderUtils.Pro<LoginStatusProvide>(context)?.loginStatus("66666666");
-    });
+    DioRequestControl().logion(widget.name, widget.passworld, context,
+        printError: (value) {
+      ProviderUtils.Pro<LoginStatusProvide>(context)?.loginStatus("66666");
+    }).then((value) {});
   }
 
   /**
