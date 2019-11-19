@@ -7,7 +7,7 @@ import '../utils/common_utils.dart';
 /**
  * textView 统一封装使用
  */
-class TextstyleUtils {
+class TextStyleUtils {
   static const String app_default_share_url =
       "https://github.com/CarGuo/GSYGithubAppFlutter";
 
@@ -30,14 +30,19 @@ class TextstyleUtils {
   static TextStyle searchResultItemCommentCountStyle =
       TextStyle(fontSize: 12, color: Color(0xFF999999));
 
-  static const minText = TextStyle(
-    color: CommonColors.mainColor,
-    fontSize: minTextSize,
+  static const LoginInputText = TextStyle(
+    color: Color(0xFF202020),
+    fontSize: 15,
+  );
+  static const LoginHintText = TextStyle(
+    color: Color(0xFFbcbcbc),
+    fontSize: 15,
   );
 
-  static const smallTextWhite = TextStyle(
-    color: CommonColors.mainColor,
-    fontSize: smallTextSize,
+  ///基本提交按钮
+  static const SubmitButtonTewxt = TextStyle(
+    color: Colors.white,
+    fontSize: middleTextWhiteSize,
   );
 
   static const smallText = TextStyle(

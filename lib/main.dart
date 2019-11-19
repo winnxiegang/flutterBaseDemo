@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_myfirstdemo/utils/tire_export.dart';
 import 'package:provider/provider.dart';
 import 'common/app_global.dart';
-import 'pages/login.dart';
+import 'pages/loginpage/login.dart';
 import 'pages/tabbar_page.dart';
 import 'provider/currentIndex.dart';
+import 'provider/login_provide.dart';
 import 'router/routes.dart';
 import 'pages/splash_page.dart';
 import 'utils/common_utils.dart';
@@ -18,7 +19,8 @@ void main() {
       MultiProvider(
         providers: <SingleChildCloneableWidget>[
           ChangeNotifierProvider.value(value: CurrentIndexProvide()),
-          ChangeNotifierProvider.value(value:  Global.loginStatus),
+          ChangeNotifierProvider.value(value: Global.loginStatus),
+          ChangeNotifierProvider.value(value: LoginProvide()),
         ],
         child: MyApp(),
       ),
@@ -36,13 +38,12 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(primaryColor: Colors.amber),
             home:
                 Consumer<LoginStatusProvide>(builder: (context, status, child) {
-              if (status.isLogin){
+              if (status.isLogin) {
                 PrintUtils.printMsg("------->TabbarPageMyApp的运作中");
                 return TabbarPage();
-              }
-              else
+              } else
                 PrintUtils.printMsg("------->LoginPageMyApp的运作中");
-                return LoginPage();
+              return LoginPage();
             })));
   }
 }

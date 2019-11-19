@@ -2,8 +2,8 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_myfirstdemo/pages/confirm_new_password.dart';
 import 'package:flutter_myfirstdemo/pages/forget_password.dart';
-import 'package:flutter_myfirstdemo/pages/login.dart';
 import 'package:flutter_myfirstdemo/pages/login_index.dart';
+import 'package:flutter_myfirstdemo/pages/loginpage/login.dart';
 import 'package:flutter_myfirstdemo/pages/tabbar_page.dart';
 
 /// 根目录

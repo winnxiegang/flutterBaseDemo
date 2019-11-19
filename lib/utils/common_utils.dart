@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_myfirstdemo/provider/login_status_provide.dart';
 import 'package:provider/provider.dart';
-
+import '../utils/textstyle.dart';
 class CommonColors {
   ///主颜色
   static const Color mainColor = Color(0xFFFFD54F);
 
   //灰色图片
   static Color grayPicture = Color(0xFF888889);
+
+  //灰色图片
+  static Color grayBg=Color.fromRGBO(239, 239, 239, 1);
 }
 
 class CommonDivider {
@@ -55,9 +57,9 @@ class PrintUtils {
 }
 
 class ProviderUtils {
-  static T Pro<T>(BuildContext buildContext, {bool refushListen = true}) {
-    if (buildContext != null) {
-      return Provider.of<T>(buildContext, listen: refushListen);
+  static T Pro<T>(BuildContext context, {bool refushListen = true}) {
+    if (context != null) {
+      return Provider.of<T>(context, listen: refushListen);
     }
     PrintUtils.printMsg("------->${T}的buildContext为空");
     return null;

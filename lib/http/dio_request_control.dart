@@ -28,11 +28,11 @@ printError 在需要退出到其他界面中，可能导致dialog 或者其他�
   Future _error<T>(BaseResp baseResp, BuildContext context,
       {Function printError}) {
     if (baseResp.errorCode == 401 && context != null) {
-      OkToast.show(msg: "登录失效，重新登录");
+      ToastOk.show(msg: "登录失效，重新登录");
       Routes.router.navigateTo(context, Routes.login, replace: true);
       return new Future<T>.error(baseResp.errorMsg);
     }
-    OkToast.show(msg: baseResp.errorMsg);
+    ToastOk.show(msg: baseResp.errorMsg);
     if (printError != null) {
       printError(baseResp.errorMsg);
       return new Future<T>.error(baseResp.errorMsg);

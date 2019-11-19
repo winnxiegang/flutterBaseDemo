@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_myfirstdemo/pages/loginpage/login.dart';
 import 'package:flutter_myfirstdemo/provider/currentIndex.dart';
 import 'package:flutter_myfirstdemo/utils/tire_export.dart';
 import 'package:provider/provider.dart';
 
 import 'confirm_new_password.dart';
 import 'listviewdemo.dart';
-import 'login.dart';
 
 class TabbarPage extends StatelessWidget {
   final List<BottomNavigationBarItem> bottomTabs = [
@@ -29,8 +29,8 @@ class TabbarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
     return WillPopScope(
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
@@ -49,8 +49,7 @@ class TabbarPage extends StatelessWidget {
         ),
       ),
       onWillPop: () {
-        // ignore: missing_return
-        _onWillPop(context);
+        return _onWillPop(context);
       },
     );
   }

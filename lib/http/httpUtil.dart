@@ -149,7 +149,7 @@ class HttpUtil {
     int _code;
     String _msg;
     T _data;
-    OkToast.show(msg: "statusCode${HttpStatus.ok + HttpStatus.created}");
+    ToastOk.show(msg: "statusCode${HttpStatus.ok + HttpStatus.created}");
     print("statusCode${HttpStatus.ok + HttpStatus.created}");
     if (response.statusCode == HttpStatus.ok ||
         response.statusCode == HttpStatus.created) {
@@ -193,7 +193,7 @@ class HttpUtil {
     if (e.type == DioErrorType.CONNECT_TIMEOUT ||
         e.type == DioErrorType.SEND_TIMEOUT ||
         e.type == DioErrorType.RECEIVE_TIMEOUT) {
-      OkToast.show(msg: "连接请求超时,稍后重试");
+      ToastOk.show(msg: "连接请求超时,稍后重试");
     } else if (e.type == DioErrorType.RESPONSE) {
       // When the server response, but with a incorrect status, such as 404, 503...
       print("出现异常");
@@ -202,7 +202,7 @@ class HttpUtil {
       print("请求取消");
     } else if (e.type == DioErrorType.DEFAULT) {
       // When the server response, but with a incorrect status, such as 404, 503...
-      OkToast.show(msg: "网络异常,请检查网络后重试");
+      ToastOk.show(msg: "网络异常,请检查网络后重试");
     }
   }
 
@@ -283,7 +283,7 @@ class LogsInterceptors extends InterceptorsWrapper {
     if (e.type == DioErrorType.CONNECT_TIMEOUT ||
         e.type == DioErrorType.SEND_TIMEOUT ||
         e.type == DioErrorType.RECEIVE_TIMEOUT) {
-      OkToast.show(msg: "连接请求超时,稍后重试");
+      ToastOk.show(msg: "连接请求超时,稍后重试");
     } else if (e.type == DioErrorType.RESPONSE) {
       // When the server response, but with a incorrect status, such as 404, 503...
       print("出现异常");
@@ -292,7 +292,7 @@ class LogsInterceptors extends InterceptorsWrapper {
       print("请求取消");
     } else if (e.type == DioErrorType.DEFAULT) {
       // When the server response, but with a incorrect status, such as 404, 503...
-      OkToast.show(msg: "网络异常,请检查网络后重试");
+      ToastOk.show(msg: "网络异常,请检查网络后重试");
     }
   }
 }
