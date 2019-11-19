@@ -15,7 +15,7 @@ Future showLoadingProgress(BuildContext context, bool backdiss) {
     builder: (context) {
       return new WillPopScope(
           child: Container(
-              decoration: BoxDecoration(color: Colors.transparent),
+              decoration: BoxDecoration(color: Colors.white60),
               child: SpinKitThreeBounce(
                 color: Colors.yellowAccent,
               )),

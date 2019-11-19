@@ -35,13 +35,9 @@ class ListViewDemoState extends State<ListViewDemo> {
         body: SafeArea(
           child: EasyRefresh.custom(
             controller: _controller,
-            emptyWidget: _count == 0
-                ? EmptyViewUtils.emptyViewWidget(
-                    imageAddress: 'images/icon_login_qq.png',
-                    click: () {
-                      _controller.callRefresh();
-                      return;
-                    })
+            emptyWidget: _count == 20
+                ? EmptyViewUtils.emptyViewWidget(click: () {_controller.callRefresh();
+                })
                 : null,
             header: BallPulseHeader(),
             footer: BallPulseFooter(),
@@ -75,6 +71,10 @@ class ListViewDemoState extends State<ListViewDemo> {
             ],
           ),
         ));
+    return ListView.builder(
+      itemCount: posts.length,
+      itemBuilder: listItemBuilder,
+    );
   }
 
   void onRefreshData() {
