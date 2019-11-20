@@ -8,33 +8,21 @@ import '../utils/common_utils.dart';
  * textView 统一封装使用
  */
 class TextStyleUtils {
-  static const String app_default_share_url =
-      "https://github.com/CarGuo/GSYGithubAppFlutter";
-
   static const lagerTextSize = 30.0;
-  static const bigTextSize = 23.0;
-  static const normalTextSize = 18.0;
+  static const bigTextSize = 20.0;
+  static const normalTextSize = 16.0;
   static const middleTextWhiteSize = 16.0;
   static const smallTextSize = 14.0;
   static const minTextSize = 12.0;
-
-  static TextStyle appBarTitleWhiteTextStyle =
-      TextStyle(fontSize: 18, color: Colors.white);
-
-  static TextStyle appBarTitleBlackTextStyle =
-      TextStyle(fontSize: 16, color: Colors.black);
-
-  static TextStyle primaryTextStyle =
-      TextStyle(fontSize: 14, color: Colors.black);
-
-  static TextStyle searchResultItemCommentCountStyle =
-      TextStyle(fontSize: 12, color: Color(0xFF999999));
-
-  static const LoginInputText = TextStyle(
+  static const NormalTextStyle = TextStyle(
+    color: CommonColors.mainColor,
+    fontSize: 16,
+  );
+  static const LoginInputTextStyle = TextStyle(
     color: Color(0xFF202020),
     fontSize: 15,
   );
-  static const LoginHintText = TextStyle(
+  static const LoginHintTextStyle = TextStyle(
     color: Color(0xFFbcbcbc),
     fontSize: 15,
   );
@@ -50,10 +38,14 @@ class TextStyleUtils {
     fontSize: smallTextSize,
   );
 
-  static const smallTextBold = TextStyle(
-    color: CommonColors.mainColor,
-    fontSize: smallTextSize,
-    fontWeight: FontWeight.bold,
+////
+  static const mineTextLeftStyle = TextStyle(
+    color: CommonColors.mainBlackColor,
+    fontSize: bigTextSize,
+  );
+  static const mineTextRightStyle = TextStyle(
+    color: CommonColors.mainBlackFF99Color,
+    fontSize: normalTextSize,
   );
 
   static const smallSubLightText = TextStyle(

@@ -8,19 +8,16 @@ class LoginItemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: Column(
-            children: <Widget>[
-              CommonDivider.buildDivider(20),
-              CommonDivider.buildDivider(1),
-              _usePhoneWidget(context), //登录名weight
-              CommonDivider.buildDivider(1, mColor: Colors.amber),
-              passwordTextFiled(context), //登录密码weight
-              SizedBox(height: 30),
-            ],
-          ),
+      child: Container(
+        child: Column(
+          children: <Widget>[
+            CommonDivider.buildDivider(20),
+            CommonDivider.buildDivider(1),
+            _usePhoneWidget(context), //登录名weight
+            CommonDivider.buildDivider(1, mColor: Colors.amber),
+            passwordTextFiled(context), //登录密码weight
+            SizedBox(height: 30),
+          ],
         ),
       ),
     );
@@ -34,23 +31,24 @@ class LoginItemPage extends StatelessWidget {
       padding: EdgeInsets.only(left: 15, right: 15),
       child: Row(
         children: <Widget>[
-          Text("用户名", style: TextStyleUtils.LoginInputText),
+          Text("用户名", style: TextStyleUtils.LoginInputTextStyle),
           SizedBox(width: 20),
           Container(
             child: Flexible(
               child: TextField(
+                cursorColor: CommonColors.mainColor,
                 onChanged: (text) {
                   //内容改变的回调
                   ProviderUtils.Pro<LoginProvide>(context)
                       ?.setUsePhone('$text');
                 },
                 maxLength: 20,
-                style: TextStyleUtils.LoginInputText,
+                style: TextStyleUtils.LoginInputTextStyle,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                   counterText: "",
                   border: InputBorder.none,
-                  hintStyle: TextStyleUtils.LoginHintText,
+                  hintStyle: TextStyleUtils.LoginHintTextStyle,
                   hintText: '请输入手机号',
                 ),
               ),
@@ -69,24 +67,26 @@ class LoginItemPage extends StatelessWidget {
       padding: EdgeInsets.only(left: 15, right: 15),
       child: Row(
         children: <Widget>[
-          Text("密    码", style: TextStyleUtils.LoginInputText),
+          Text("密    码", style: TextStyleUtils.LoginInputTextStyle),
           SizedBox(width: 20),
           Container(
             child: Flexible(
               child: TextField(
+                cursorColor: CommonColors.mainColor,
                 onChanged: (text) {
                   //内容改变的回调
-                  ProviderUtils.Pro<LoginProvide>(context)?.setUseWorld('$text');
+                  ProviderUtils.Pro<LoginProvide>(context)
+                      ?.setUseWorld('$text');
                 },
                 maxLength: 20,
                 obscureText: true,
-                style: TextStyleUtils.LoginInputText,
+                style: TextStyleUtils.LoginInputTextStyle,
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.done,
                 decoration: InputDecoration(
                   counterText: "",
                   border: InputBorder.none,
-                  hintStyle: TextStyleUtils.LoginHintText,
+                  hintStyle: TextStyleUtils.LoginHintTextStyle,
                   hintText: '请输入密码',
                 ),
               ),
@@ -96,5 +96,4 @@ class LoginItemPage extends StatelessWidget {
       ),
     );
   }
-
 }

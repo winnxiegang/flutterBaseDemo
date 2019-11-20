@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: Routes.router.generator,
-            theme: ThemeData(primaryColor: Colors.amber),
+            theme: ThemeData(primaryColor: CommonColors.mainColor),
             home:
                 Consumer<LoginStatusProvide>(builder: (context, status, child) {
               if (status.isLogin) {

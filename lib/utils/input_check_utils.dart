@@ -26,4 +26,27 @@ class InputCheckUtils {
 
     return true;
   }
+  ///提交忘记密码
+  static bool isCheckForgetPassword(
+      BuildContext context, String userPhone, String userCode) {
+    if (userPhone.length < 11) {
+      Toast.show("手机号有误", context,
+          duration: Toast.LENGTH_SHORT,
+          gravity: Toast.CENTER,
+          backgroundRadius: 5,
+          backgroundColor: Colors.black38);
+      return false;
+    }
+
+    if (userCode.isEmpty || userCode.length < 6) {
+      Toast.show("验证码有误", context,
+          duration: Toast.LENGTH_SHORT,
+          gravity: Toast.CENTER,
+          backgroundRadius: 5,
+          backgroundColor: Colors.black38);
+      return false;
+    }
+
+    return true;
+  }
 }

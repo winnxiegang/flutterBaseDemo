@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../utils/textstyle.dart';
+
 class CommonColors {
   ///主颜色
   static const Color mainColor = Color(0xFFFFD54F);
@@ -9,7 +10,16 @@ class CommonColors {
   static Color grayPicture = Color(0xFF888889);
 
   //灰色图片
-  static Color grayBg=Color.fromRGBO(239, 239, 239, 1);
+  static Color grayBg = Color.fromRGBO(239, 239, 239, 1);
+
+  //灰色图片
+  static Color white = Colors.white;
+
+  //灰色图片
+  static  const Color mainBlackColor = Colors.black;
+
+  //灰色图片
+  static  const Color mainBlackFF99Color = Color(0xFF999999);
 }
 
 class CommonDivider {

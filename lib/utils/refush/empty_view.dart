@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class EmptyViewUtils {
   static Widget emptyViewWidget(
-      {String text, String imageAddress, Function click()}) {
+      {String text, String imageAddress, VoidCallback click}) {
     return Container(
       alignment: Alignment.center,
       child: Column(
@@ -14,20 +14,16 @@ class EmptyViewUtils {
               click();
             },
             child: Image.asset(
-              imageAddress ??
-                  'https://resources.ninghao.org/images/candy-shop.jpg',
+              imageAddress ?? 'images/icon_page_empty.png',
               height: 150,
-              width: double.infinity,
+              width: 200,
             ),
           ),
           SizedBox(
             height: 20,
           ),
-          Text(text ?? '哎呦喂，列表暂时没数据呢...')
         ],
       ),
-
     );
-
   }
 }

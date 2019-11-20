@@ -1,8 +1,8 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_myfirstdemo/pages/confirm_new_password.dart';
-import 'package:flutter_myfirstdemo/pages/forget_password.dart';
 import 'package:flutter_myfirstdemo/pages/login_index.dart';
+import 'package:flutter_myfirstdemo/pages/loginpage/forget_passworld.dart';
 import 'package:flutter_myfirstdemo/pages/loginpage/login.dart';
 import 'package:flutter_myfirstdemo/pages/tabbar_page.dart';
 
@@ -25,7 +25,7 @@ var loginHandler = new Handler(
 ///忘记密码
 var forgetPasswordHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) =>
-        ForgetPasswordPage());
+        ForgetPassWorldPage());
 
 ///确认新密码
 var confirmNewPasswordHandler = new Handler(

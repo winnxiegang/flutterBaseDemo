@@ -36,7 +36,9 @@ class ListViewDemoState extends State<ListViewDemo> {
           child: EasyRefresh.custom(
             controller: _controller,
             emptyWidget: _count == 20
-                ? EmptyViewUtils.emptyViewWidget(click: () {_controller.callRefresh();})
+                ? EmptyViewUtils.emptyViewWidget(click: () {
+                    _controller.callRefresh();
+                  })
                 : null,
             header: BallPulseHeader(),
             footer: BallPulseFooter(),

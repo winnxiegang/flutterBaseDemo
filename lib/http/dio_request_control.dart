@@ -58,9 +58,50 @@ printError 在需要退出到其他界面中，可能导致dialog 或者其他�
             data: {"username": username, "password": password});
     dialog.dismissDialog(context);
     UserEntity userEntity;
-    if (baseResp.errorCode == 200 ||
-        baseResp.errorCode == 201 ||
-        baseResp.errorCode == 204) {
+    if (baseResp.errorCode == 200) {
+      if (baseResp.data != null) {
+        userEntity = UserEntity.fromJson(baseResp.data);
+      }
+      return userEntity;
+    }
+    return _error<UserEntity>(baseResp, context, printError: printError);
+  }
+
+  /**
+   * 获取验证码
+   */
+  Future<UserEntity> getPassCode(String userPhone, BuildContext context,
+      {bool backdiss, Function printError}) async {
+    dialog.showLoadingProgress(context, backdiss);
+    BaseResp<Map<String, dynamic>> baseResp =
+        await HttpUtil.getInstance(context).request<Map<String, dynamic>>(
+            Method.post, ApiUrls.getPath(path: ApiUrls.LOGIN),
+            data: {"userPhone": userPhone});
+    dialog.dismissDialog(context);
+    UserEntity userEntity;
+    if (baseResp.errorCode == 200) {
+      if (baseResp.data != null) {
+        userEntity = UserEntity.fromJson(baseResp.data);
+      }
+      return userEntity;
+    }
+    return _error<UserEntity>(baseResp, context, printError: printError);
+  }
+
+  /**
+   * 获取密码
+   */
+  Future<UserEntity> getPassWorld(
+      String userPhone, String userCode, BuildContext context,
+      {bool backdiss, Function printError}) async {
+    dialog.showLoadingProgress(context, backdiss);
+    BaseResp<Map<String, dynamic>> baseResp =
+        await HttpUtil.getInstance(context).request<Map<String, dynamic>>(
+            Method.post, ApiUrls.getPath(path: ApiUrls.LOGIN),
+            data: {"userPhone": userPhone, "userCode": userCode});
+    dialog.dismissDialog(context);
+    UserEntity userEntity;
+    if (baseResp.errorCode == 200) {
       if (baseResp.data != null) {
         userEntity = UserEntity.fromJson(baseResp.data);
       }

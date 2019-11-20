@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 import 'confirm_new_password.dart';
 import 'listviewdemo.dart';
+import 'minepage/mine.dart';
 
 class TabbarPage extends StatelessWidget {
   final List<BottomNavigationBarItem> bottomTabs = [
@@ -17,13 +18,13 @@ class TabbarPage extends StatelessWidget {
     BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.shopping_cart), title: Text('购物车')),
     BottomNavigationBarItem(
-        icon: Icon(CupertinoIcons.profile_circled), title: Text('会员中心')),
+        icon: Icon(CupertinoIcons.profile_circled), title: Text('我的')),
   ];
   final List<Widget> tabBodies = [
     ListViewDemo(),
     LoginPage(),
     LoginPage(),
-    ConfirmNewPasswordPage()
+    MineInformationPage()
   ];
   DateTime lastPopTime;
 
